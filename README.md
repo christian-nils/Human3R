@@ -35,26 +35,26 @@ git clone https://github.com/fanegg/Human3R.git
 cd Human3R
 ```
 
-1. Install dependencies
+2. Install dependencies
 ```bash
 sudo apt update
 sudo apt install unzip git python3-pip python3-venv python3 cmake
 ```
 
-2. Create the environment.
+3. Create the environment.
 ```bash
 python3 -m venv .human3r
 . .human3r/bin/activate
-python -m pip install -r requirements.txt
 python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130 #make sure that the major version is the same as the CUDA toolkit installed on the host machine
+python -m pip install -r requirements.txt
 ```
 
-3. Add CUDA bin in .bashrc
+4. Add CUDA bin in .bashrc
 ```bash
 echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> ~/.bashrc
 ```
 
-3. Compile the cuda kernels for RoPE (as in CroCo v2).
+5. Compile the cuda kernels for RoPE (as in CroCo v2).
 ```bash
 cd src/croco/models/curope/
 python setup.py build_ext --inplace
