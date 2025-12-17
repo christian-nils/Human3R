@@ -1,6 +1,3 @@
-numpy==1.26.4
-torch
-torchvision
 roma
 gradio
 matplotlib
@@ -16,7 +13,7 @@ viser
 gradio
 lpips
 hydra-core
-pillow==10.3.0
+pillow
 h5py
 accelerate
 transformers
@@ -26,4 +23,7 @@ pyrender==0.1.45
 smplx
 pyvista==0.42.3
 spaces==0.19.4
-git+https://github.com/mattloper/chumpy@9b045ff5d6588a24a0bab52c83f032e2ba433e17
+gdown
+evo
+open3d
+gsplat

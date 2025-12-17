@@ -1,0 +1,3 @@
+[submodule "src/croco"]
+	path = src/croco
+	url = git@github.com:naver/croco.git

@@ -35,20 +35,23 @@ git clone https://github.com/fanegg/Human3R.git
 cd Human3R
 ```
 
+1. Install dependencies
+```bash
+sudo apt update
+sudo apt install unzip git python3-pip python3-venv python3 cmake
+```
+
 2. Create the environment.
 ```bash
-conda create -n human3r python=3.11 cmake
-conda activate human3r
-conda install pytorch torchvision pytorch-cuda=12.4 -c pytorch -c nvidia  # use the correct version of cuda for your system
-pip install -r requirements.txt
-# issues with pytorch dataloader, see https://github.com/pytorch/pytorch/issues/99625
-conda install 'llvm-openmp<16'
-# for training logging
-conda install -y gcc_linux-64 gxx_linux-64
-pip install git+https://github.com/nerfstudio-project/gsplat.git
-# for evaluation
-pip install evo
-pip install open3d
+python3 -m venv .human3r
+. .human3r/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130 #make sure that the major version is the same as the CUDA toolkit installed on the host machine
+```
+
+3. Add CUDA bin in .bashrc
+```bash
+echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> ~/.bashrc
 ```
 
 3. Compile the cuda kernels for RoPE (as in CroCo v2).
